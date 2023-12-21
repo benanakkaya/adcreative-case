@@ -23,7 +23,7 @@ const SelectedCharacters = () => {
     <ul className='flex flex-wrap gap-x-2 gap-y-1 h-[95px] overflow-y-auto'>
       {selectedCharacters.length > 0 ?
         selectedCharacters.map((character: Character) => (
-          <li className='px-2 py-1 bg-blue-400 text-white rounded-md h-[32px]'>
+          <li key={character.id} className='px-2 py-1 bg-blue-400 text-white rounded-md h-[32px]'>
             {character.name} <button onClick={(e) => handleDelete(character,e)} className='font-bold text-red-500 cursor-pointer'>X</button>
           </li>
         ))

@@ -24,7 +24,7 @@ const CharacterList = () => {
         <div className='p-1'>
             {listStatus === "ready" ?
                 <>
-                    <ul className='flex flex-col gap-1 rounded-md border border-blue-400 px-2 py-1 h-72 overflow-y-auto'>
+                    <ul className='flex flex-col gap-1 rounded-md border border-blue-400 px-2 py-1 h-60 overflow-y-auto'>
                         {characterList.results?.map((character: Character) => (
                             <CharacterItem key={character.id} character={character} />
                         ))}
@@ -44,11 +44,11 @@ const CharacterList = () => {
                 </>
                 :
                 listStatus === "pending" ?
-                    <div className='flex items-center justify-center w-full rounded-md border border-blue-400 px-2 py-1 h-72 overflow-y-auto'>
+                    <div className='flex items-center justify-center w-full rounded-md border border-blue-400 px-2 py-1 h-60 overflow-y-auto'>
                         <AiOutlineLoading3Quarters className="text-3xl animate-spin delay-300" />
                     </div>
                     :
-                    <div className='flex items-center justify-center w-full rounded-md border border-blue-400 px-2 py-1 h-72 overflow-y-auto'>
+                    <div className='flex items-center justify-center w-full rounded-md border border-blue-400 px-2 py-1 h-60 overflow-y-auto'>
                         Character not found
                     </div>
             }
