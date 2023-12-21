@@ -1,7 +1,7 @@
 "use client"
 import { Character, setSelectedCharacters } from '@/redux/Character/CharacterSlice'
 import { AppDispatch, RootState } from '@/redux/store'
-import React from 'react'
+import React, { JSXElementConstructor, ReactElement } from 'react'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 
@@ -12,7 +12,8 @@ const SelectedCharacters = () => {
   const { selectedCharacters } = useSelector((state: RootState) => state.character)
 
   //Seçilen karakteri sil
-  const handleDelete = (character: Character) => {
+  const handleDelete = (character: Character,e:any) => {
+    e.preventDefault()
     dispatch(setSelectedCharacters(character))
   }
 
@@ -23,7 +24,7 @@ const SelectedCharacters = () => {
       {selectedCharacters.length > 0 ?
         selectedCharacters.map((character: Character) => (
           <li className='px-2 py-1 bg-blue-400 text-white rounded-md h-[32px]'>
-            {character.name} <button onClick={() => handleDelete(character)} className='font-bold text-red-500 cursor-pointer'>X</button>
+            {character.name} <button onClick={(e) => handleDelete(character,e)} className='font-bold text-red-500 cursor-pointer'>X</button>
           </li>
         ))
         :
